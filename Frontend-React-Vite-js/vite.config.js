@@ -9,10 +9,10 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
-    port: 8081, // Set port to 8081 for your frontend
+    port: 3000, // Set port to 3000 to avoid conflict with backend on 8081
     proxy: {
       '/api': {
-        target: 'http://localhost:8081', // Adjust this to your backend's API URL if needed
+        target: 'http://localhost:8081', // Adjust this to your backend's API URL
         changeOrigin: true,
         secure: false,
       },
