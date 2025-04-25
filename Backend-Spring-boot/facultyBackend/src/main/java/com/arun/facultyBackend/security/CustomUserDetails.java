@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.security;
+package com.arun.facultyBackend.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

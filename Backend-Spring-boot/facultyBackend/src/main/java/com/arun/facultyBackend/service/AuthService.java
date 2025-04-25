@@ -1,10 +1,12 @@
-package com.aravinth.facultyBackend.service;
+package com.arun.facultyBackend.service;
 
-import com.aravinth.facultyBackend.entity.User;
-import com.aravinth.facultyBackend.repository.UserRepository;
-import com.aravinth.facultyBackend.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.arun.facultyBackend.entity.User;
+import com.arun.facultyBackend.repository.UserRepository;
+import com.arun.facultyBackend.security.JwtUtil;
+
 import java.util.Optional;
 
 @Service
@@ -28,8 +30,8 @@ public class AuthService {
     public String authenticate(String username, String password) {
         Optional<User> userOpt = userRepository.findByUsername(username);
         if (userOpt.isPresent() && passwordEncoder.matches(password, userOpt.get().getPassword())) {
-            Long userId = userOpt.get().getId();  // Assuming the User entity has an 'id' field
-            return jwtUtil.generateToken(username, userId);  // Pass both username and userId
+            Long userId = userOpt.get().getId(); // Assuming the User entity has an 'id' field
+            return jwtUtil.generateToken(username, userId); // Pass both username and userId
         }
         return null;
     }

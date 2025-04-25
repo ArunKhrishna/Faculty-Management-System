@@ -1,8 +1,9 @@
-package com.aravinth.facultyBackend.controller;
+package com.arun.facultyBackend.controller;
 
-import com.aravinth.facultyBackend.entity.User;
-import com.aravinth.facultyBackend.service.AuthService;
 import org.springframework.web.bind.annotation.*;
+
+import com.arun.facultyBackend.entity.User;
+import com.arun.facultyBackend.service.AuthService;
 
 @RestController
 @RequestMapping("/auth")

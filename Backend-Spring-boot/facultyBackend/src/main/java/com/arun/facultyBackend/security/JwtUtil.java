@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.security;
+package com.arun.facultyBackend.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -41,9 +41,9 @@ public class JwtUtil {
     public String generateToken(String username, Long userId) {
         return Jwts.builder()
                 .setSubject(username)
-                .claim("id", userId)  // Add user ID as a claim
+                .claim("id", userId) // Add user ID as a claim
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))  // 10 hours expiration
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours expiration
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }

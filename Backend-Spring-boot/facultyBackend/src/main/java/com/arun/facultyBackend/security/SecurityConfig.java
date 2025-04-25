@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.security;
+package com.arun.facultyBackend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,8 +29,7 @@ public class SecurityConfig {
         return http
                 .cors(cors -> cors.configure(http))
                 .csrf(csrf -> csrf.disable())
-                .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/auth/**").permitAll()
                             .anyRequest().authenticated();

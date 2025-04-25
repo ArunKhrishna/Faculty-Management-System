@@ -1,13 +1,14 @@
-package com.aravinth.facultyBackend.service;
+package com.arun.facultyBackend.service;
 
-import com.aravinth.facultyBackend.entity.LeaveRequest;
-import com.aravinth.facultyBackend.entity.User;
-import com.aravinth.facultyBackend.repository.LeaveRequestRepository;
-import com.aravinth.facultyBackend.repository.UserRepository;
-import com.aravinth.facultyBackend.dto.LeaveRequestDTO;
-import com.aravinth.facultyBackend.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.arun.facultyBackend.dto.LeaveRequestDTO;
+import com.arun.facultyBackend.entity.LeaveRequest;
+import com.arun.facultyBackend.entity.User;
+import com.arun.facultyBackend.repository.LeaveRequestRepository;
+import com.arun.facultyBackend.repository.UserRepository;
+import com.arun.facultyBackend.security.JwtUtil;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,8 +19,10 @@ public class LeaveRequestService {
     private final LeaveRequestRepository leaveRequestRepository;
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
+
     @Autowired
-    public LeaveRequestService(LeaveRequestRepository leaveRequestRepository, UserRepository userRepository, JwtUtil jwtUtil) {
+    public LeaveRequestService(LeaveRequestRepository leaveRequestRepository, UserRepository userRepository,
+            JwtUtil jwtUtil) {
         this.leaveRequestRepository = leaveRequestRepository;
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;
@@ -65,7 +68,7 @@ public class LeaveRequestService {
     }
 
     public Long getUserIdFromToken(String token) {
-        String username = jwtUtil.extractUsername(token.substring(7));  // Remove "Bearer " prefix
+        String username = jwtUtil.extractUsername(token.substring(7)); // Remove "Bearer " prefix
         Optional<User> user = userRepository.findByUsername(username);
         return user.isPresent() ? user.get().getId() : null;
     }

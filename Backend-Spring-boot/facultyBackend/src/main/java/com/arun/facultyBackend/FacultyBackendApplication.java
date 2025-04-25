@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend;
+package com.arun.facultyBackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

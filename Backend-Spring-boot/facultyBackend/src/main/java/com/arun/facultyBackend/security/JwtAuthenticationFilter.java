@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.security;
+package com.arun.facultyBackend.security;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -21,7 +21,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         String token = extractToken(request);
 
         if (token != null && jwtUtil.isTokenValid(token)) {
@@ -35,14 +36,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
 
-        filterChain.doFilter(request, response);  // Continue the filter chain
+        filterChain.doFilter(request, response); // Continue the filter chain
     }
 
     private String extractToken(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
 
         if (header != null && header.startsWith("Bearer ")) {
-            return header.substring(7);  // Extract the token part
+            return header.substring(7); // Extract the token part
         }
         return null;
     }

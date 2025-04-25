@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.dto;
+package com.arun.facultyBackend.dto;
 
 import java.util.Date;
 
@@ -10,7 +10,8 @@ public class LeaveRequestDTO {
     private Date endDate;
 
     // Default constructor
-    public LeaveRequestDTO() {}
+    public LeaveRequestDTO() {
+    }
 
     // Constructor with fields
     public LeaveRequestDTO(String leaveType, String leaveReason, Date startDate, Date endDate) {

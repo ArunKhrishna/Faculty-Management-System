@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend.entity;
+package com.arun.facultyBackend.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;
@@ -13,23 +13,25 @@ public class LeaveRequest {
     private String username;
     @ManyToOne
     @JoinColumn(name = "faculty_id", nullable = false)
-    private User faculty;  // This is the faculty requesting leave
+    private User faculty; // This is the faculty requesting leave
 
-    private String leaveType;     // Leave type (e.g., Casual, Sick, etc.)
-    private String leaveReason;   // Reason for leave
-    private Date startDate;       // Start date of leave
-    private Date endDate;         // End date of leave
+    private String leaveType; // Leave type (e.g., Casual, Sick, etc.)
+    private String leaveReason; // Reason for leave
+    private Date startDate; // Start date of leave
+    private Date endDate; // End date of leave
 
-    private boolean isRequested = false;  // Initially, the request is not yet made
-    private boolean isHodApproved = false;  // Whether the HOD approved the leave
-    private boolean isHrApproved = false;  // Whether the HR approved the leave
-    private boolean isLeaveApproved = false;  // Final status of the leave approval
+    private boolean isRequested = false; // Initially, the request is not yet made
+    private boolean isHodApproved = false; // Whether the HOD approved the leave
+    private boolean isHrApproved = false; // Whether the HR approved the leave
+    private boolean isLeaveApproved = false; // Final status of the leave approval
 
     // Default constructor
-    public LeaveRequest() {}
+    public LeaveRequest() {
+    }
 
     // Constructor with fields
-    public LeaveRequest(String username, User faculty, String leaveType, String leaveReason, Date startDate, Date endDate) {
+    public LeaveRequest(String username, User faculty, String leaveType, String leaveReason, Date startDate,
+            Date endDate) {
         this.faculty = faculty;
         this.username = username;
         this.leaveType = leaveType;

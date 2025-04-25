@@ -1,13 +1,14 @@
-package com.aravinth.facultyBackend.controller;
+package com.arun.facultyBackend.controller;
 
-import com.aravinth.facultyBackend.dto.LeaveRequestDTO;
-import com.aravinth.facultyBackend.entity.LeaveRequest;
-import com.aravinth.facultyBackend.service.LeaveRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import com.arun.facultyBackend.dto.LeaveRequestDTO;
+import com.arun.facultyBackend.entity.LeaveRequest;
+import com.arun.facultyBackend.service.LeaveRequestService;
 
 import java.util.List;
 
@@ -23,7 +24,8 @@ public class LeaveRequestController {
     }
 
     @PostMapping("/faculty/{facultyId}")
-    public ResponseEntity<LeaveRequest> requestLeave(@RequestBody LeaveRequestDTO leaveRequestDTO, @PathVariable Long facultyId) {
+    public ResponseEntity<LeaveRequest> requestLeave(@RequestBody LeaveRequestDTO leaveRequestDTO,
+            @PathVariable Long facultyId) {
         System.out.println("reached");
         LeaveRequest leaveRequest = leaveRequestService.createLeaveRequest(leaveRequestDTO, facultyId);
         if (leaveRequest != null) {
@@ -60,7 +62,8 @@ public class LeaveRequestController {
 
     @GetMapping("/fetch-requests")
     public List<LeaveRequest> getAllLeaveRequests(@RequestHeader("Authorization") String token) {
-//        jwtUtil.validateToken(token); // Optional: Validate the token before fetching data
+        // jwtUtil.validateToken(token); // Optional: Validate the token before fetching
+        // data
         return leaveRequestService.getAllRequests();
     }
 }
