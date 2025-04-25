@@ -1,4 +1,4 @@
-package com.aravinth.facultyBackend;
+package com.arun.facultyBackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
